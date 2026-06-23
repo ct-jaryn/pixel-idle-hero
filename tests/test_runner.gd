@@ -16,9 +16,11 @@ func _ready() -> void:
 	test_equipment_manager_basic()
 	test_equipment_manager_sell()
 	test_enemy_data_stats()
+	test_enemy_data_scaling()
 	test_boss_mechanics()
 	test_skill_manager()
 	test_save_round_trip()
+	test_reward_manager_gold_single_count()
 	
 	print("=== 测试结束 ===")
 	print("通过：%d，失败：%d" % [_passed, _failed])
@@ -102,6 +104,18 @@ func test_enemy_data_stats() -> void:
 	var boss: EnemyData = EnemyData.new("恶龙", 10, true)
 	_assert(boss.max_hp > enemy.max_hp, "Boss 生命高于普通怪")
 	_assert(boss.is_boss, "Boss 标记正确")
+
+func test_enemy_data_scaling() -> void:
+	print("\n[EnemyData] 属性倍率独立生效")
+	## 在等级 11 处 HP/ATK/DEF 倍率各不相同，验证三者分别使用各自常量而非共用 ATK 倍率
+	var enemy: EnemyData = EnemyData.new("测试怪", 11, false)
+	var hp_mult: float = 1.0 + (enemy.level - 1) * BalanceConfig.ENEMY_HP_MULTIPLIER
+	var def_mult: float = 1.0 + (enemy.level - 1) * BalanceConfig.ENEMY_DEF_MULTIPLIER
+	_assert_eq(enemy.max_hp, int(BalanceConfig.ENEMY_BASE_HP * hp_mult), "HP 使用 ENEMY_HP_MULTIPLIER")
+	_assert_eq(enemy.defense, int((BalanceConfig.ENEMY_BASE_DEF + enemy.level * 0.3) * def_mult), "DEF 使用 ENEMY_DEF_MULTIPLIER")
+	## 确认 HP 倍率确实高于 ATK 倍率（否则常量未生效）
+	_assert(BalanceConfig.ENEMY_HP_MULTIPLIER > BalanceConfig.ENEMY_ATK_MULTIPLIER, "HP 成长倍率高于 ATK")
+	_assert(BalanceConfig.ENEMY_DEF_MULTIPLIER < BalanceConfig.ENEMY_ATK_MULTIPLIER, "DEF 成长倍率低于 ATK")
 
 func test_boss_mechanics() -> void:
 	print("\n[BossMechanics] Boss 机制")
@@ -221,3 +235,20 @@ func test_save_round_trip() -> void:
 		if FileAccess.file_exists(backup_path):
 			dir.copy(backup_path, save_path)
 			dir.remove(backup_path)
+
+func test_reward_manager_gold_single_count() -> void:
+	print("\n[RewardManager] 击败敌人金币只累计一次")
+	var pd: PlayerData = PlayerData.new()
+	var stage: StageManager = StageManager.new()
+	stage.current_enemy_level = 1
+	var rm: RewardManager = RewardManager.new()
+	rm.player_data = pd
+	rm.stage_manager = stage
+	rm.equipment_manager = null
+	rm.shop_manager = null
+
+	var enemy: EnemyData = EnemyData.new("史莱姆", 1, false)
+	var gold_before: int = pd.total_gold_earned
+	rm._on_enemy_defeated(enemy)
+	## add_gold 内部已累加 total_gold_earned，reward_manager 不得再次累加，否则翻倍
+	_assert_eq(pd.total_gold_earned, gold_before + enemy.gold_reward, "累计金币只增加一次掉落金币")

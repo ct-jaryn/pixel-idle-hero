@@ -41,22 +41,23 @@ pixel-idle-hero/
 ├── project.godot              # Godot 项目配置
 ├── export_presets.cfg         # Web 导出预设
 ├── default_bus_layout.tres    # 音频总线布局
-├── balance_config.gd          # 全局数值配置表
 ├── assets/
 │   ├── fonts/                 # 中文字体（Noto Sans CJK SC）
 │   ├── images/                # 像素素材（角色、怪物、UI、背景）
 │   ├── sounds/                # 8-bit 音效与 BGM
-│   └── themes/                # 全局主题
+│   └── themes/                # 全局主题（default_theme / enhanced_theme）
 ├── scripts/
 │   ├── autoload/              # 自动加载单例（EventBus、BalanceConfig）
 │   ├── characters/            # 勇者、敌人视觉与动画
-│   ├── data/                  # 玩家、装备数据
+│   ├── data/                  # 玩家、装备、技能、成就、任务数据
 │   ├── effects/               # 音频、飘字、震动、粒子
 │   ├── enemies/               # 敌人数据、Boss 机制
-│   ├── managers/              # 战斗、关卡、装备、技能、商店、存档、成就、任务、奖励
+│   ├── managers/              # 战斗、关卡、装备、技能、商店、存档、成就、任务、奖励、总控
 │   └── ui/                    # 标题画面、子界面基类
-├── scenes/                    # 游戏场景
-├── ui/                        # 战斗、装备、商店、统计、成就、任务、暂停、引导等 UI
+├── scenes/                    # 游戏场景（标题、主场景、勇者、敌人、音频、粒子）
+├── ui/                        # 战斗、装备、商店、统计、成就、任务、暂停、引导、成就提示等 UI
+├── tests/                     # 单元测试框架（test_runner）
+├── tasks/                     # 生图/动画任务定义（JSON）
 └── tools/                     # 截图、动画生成、资源处理脚本
 ```
 
@@ -79,6 +80,14 @@ pixel-idle-hero/
 cd ../web-export
 python -m http.server 8765
 # 浏览器打开 http://localhost:8765
+```
+
+> Web 导出产物位于仓库根目录的 `web-export/`（`index.html` / `index.js` / `index.wasm` / `index.pck` 等），可直接部署到静态托管（如 GitHub Pages）。
+
+### 3. 运行单元测试
+
+```bash
+./Godot_v4.3-stable_win64_console.exe --headless --script res://tests/test_runner.gd
 ```
 
 ## 中文显示说明

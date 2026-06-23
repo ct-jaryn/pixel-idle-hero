@@ -25,7 +25,7 @@ func _on_enemy_defeated(enemy: EnemyData) -> void:
 	player_data.gain_exp(exp_reward)
 	player_data.add_gold(gold_reward)
 	player_data.total_kills += 1
-	player_data.total_gold_earned += gold_reward
+	## total_gold_earned 已在 add_gold 内累加，此处不可重复计入，否则统计与离线收益基线翻倍
 
 	if enemy.is_boss:
 		player_data.bosses_defeated += 1

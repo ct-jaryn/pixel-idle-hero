@@ -78,6 +78,8 @@ func _on_enemy_died(_enemy: EnemyData) -> void:
 	## 死亡时停止待机动画、淡出并隐藏血条
 	body.stop()
 	hp_bar.visible = false
+	## 停止受击闪烁定时器，避免其回调把 modulate 重置为白色打断死亡淡出
+	hit_flash.stop()
 	if _death_tween != null and _death_tween.is_valid():
 		_death_tween.kill()
 	_death_tween = create_tween()

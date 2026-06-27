@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var data: PlayerData
+var data: PlayerData
 
 @onready var body: AnimatedSprite2D = $Body
 @onready var shadow: Polygon2D = $Shadow

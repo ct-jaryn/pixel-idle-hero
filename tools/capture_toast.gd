@@ -12,8 +12,6 @@ func _process(_delta: float) -> bool:
 	_frame += 1
 	if _frame == 10:
 		var am: Node = _main.get_node("GameManager/AchievementManager") if _main.has_node("GameManager/AchievementManager") else null
-		if am == null:
-			am = get_first_node_in_group("achievement_manager")
 		if am:
 			var ach: AchievementData = am.achievements[0]
 			var toast: Node = _main.get_node_or_null("AchievementToast")

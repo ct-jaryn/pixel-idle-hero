@@ -45,7 +45,6 @@ var _action_tween: Tween = null
 
 func _ready() -> void:
 	base_position = position
-	add_to_group("player")
 	Services.player_node = self
 
 	if data == null:

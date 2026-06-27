@@ -29,7 +29,6 @@ const FALLBACK_NAMES: PackedStringArray = ["史莱姆", "哥布林", "蝙蝠", "
 
 
 func _ready() -> void:
-	add_to_group("enemy")
 	Services.enemy_node = self
 	base_position = position
 	if battle_manager == null:

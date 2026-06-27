@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var data: PlayerData
-@export var battle_manager: BattleManager
 
 @onready var body: AnimatedSprite2D = $Body
 @onready var shadow: Polygon2D = $Shadow
@@ -50,9 +49,7 @@ func _ready() -> void:
 	if data == null:
 		data = Services.player_data
 
-	if battle_manager == null:
-		battle_manager = Services.battle_manager
-
+	var battle_manager: BattleManager = Services.battle_manager
 	if battle_manager:
 		battle_manager.enemy_attacked.connect(_on_enemy_attacked)
 		battle_manager.player_attacked.connect(_on_player_attacked)

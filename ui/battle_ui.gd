@@ -1,13 +1,14 @@
 extends CanvasLayer
 
-@export var player_data: PlayerData
-@export var battle_manager: BattleManager
 @export var equipment_ui: CanvasLayer
 @export var shop_ui: CanvasLayer
 @export var stats_ui: CanvasLayer
 @export var achievement_ui: CanvasLayer
 @export var achievement_toast: CanvasLayer
 @export var quest_ui: CanvasLayer
+
+var player_data: PlayerData
+var battle_manager: BattleManager
 
 @onready var main_margin: MarginContainer = %MainMargin
 @onready var root_vbox: VBoxContainer = %RootVBox
@@ -45,10 +46,8 @@ func _mark_stats_dirty() -> void:
 	_stats_dirty = true
 
 func _ready() -> void:
-	if battle_manager == null:
-		battle_manager = Services.battle_manager
-	if player_data == null:
-		player_data = Services.player_data
+	battle_manager = Services.battle_manager
+	player_data = Services.player_data
 
 	## 各子 UI 由场景通过 @export NodePath 接线，无需代码兜底查找。
 

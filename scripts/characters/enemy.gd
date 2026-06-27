@@ -1,7 +1,5 @@
 extends Node2D
 
-@export var battle_manager: BattleManager
-
 @onready var body: AnimatedSprite2D = $Body
 @onready var shadow: Polygon2D = $Shadow
 @onready var hit_flash: Timer = $HitFlashTimer
@@ -31,8 +29,7 @@ const FALLBACK_NAMES: PackedStringArray = ["史莱姆", "哥布林", "蝙蝠", "
 func _ready() -> void:
 	Services.enemy_node = self
 	base_position = position
-	if battle_manager == null:
-		battle_manager = Services.battle_manager
+	var battle_manager: BattleManager = Services.battle_manager
 	if battle_manager:
 		battle_manager.battle_started.connect(_on_battle_started)
 		battle_manager.enemy_attacked.connect(_on_enemy_attacked)

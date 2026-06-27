@@ -29,6 +29,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "← 返回"
 
@@ -41,6 +42,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ProgressLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "0/0"
@@ -51,6 +53,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="AchievementList" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3

@@ -2,12 +2,12 @@ extends CanvasLayer
 
 @export var game_manager: GameManager
 
-@onready var resume_button: Button = $CenterContainer/PanelContainer/VBoxContainer/ResumeButton
-@onready var title_button: Button = $CenterContainer/PanelContainer/VBoxContainer/TitleButton
-@onready var reset_button: Button = $CenterContainer/PanelContainer/VBoxContainer/ResetButton
-@onready var quit_button: Button = $CenterContainer/PanelContainer/VBoxContainer/QuitButton
-@onready var bgm_check: CheckBox = $CenterContainer/PanelContainer/VBoxContainer/AudioGrid/BGMCheck
-@onready var sfx_check: CheckBox = $CenterContainer/PanelContainer/VBoxContainer/AudioGrid/SFXCheck
+@onready var resume_button: Button = %ResumeButton
+@onready var title_button: Button = %TitleButton
+@onready var reset_button: Button = %ResetButton
+@onready var quit_button: Button = %QuitButton
+@onready var bgm_check: CheckBox = %BGMCheck
+@onready var sfx_check: CheckBox = %SFXCheck
 
 func _ready() -> void:
 	visible = false

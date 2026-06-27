@@ -1,6 +1,6 @@
 extends BaseSubUI
 
-@onready var stats_text: RichTextLabel = $MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/StatsText
+@onready var stats_text: RichTextLabel = %StatsText
 
 func _ready() -> void:
 	super._ready()

@@ -3,11 +3,11 @@ extends CanvasLayer
 @export var steps: Array[Dictionary] = []
 @export var current_step: int = 0
 
-@onready var panel: Panel = $Panel
-@onready var label: RichTextLabel = $Panel/RichTextLabel
-@onready var next_button: Button = $Panel/NextButton
-@onready var skip_button: Button = $Panel/SkipButton
-@onready var highlight: ColorRect = $Highlight
+@onready var panel: Panel = %Panel
+@onready var label: RichTextLabel = %RichTextLabel
+@onready var next_button: Button = %NextButton
+@onready var skip_button: Button = %SkipButton
+@onready var highlight: ColorRect = %Highlight
 
 signal tutorial_finished
 

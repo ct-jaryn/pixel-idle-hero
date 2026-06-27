@@ -3,8 +3,8 @@ extends BaseSubUI
 const ACHIEVEMENT_ICON: Texture2D = preload("res://assets/images/icon_achievement.png")
 const CIRCLE_ICON: Texture2D = preload("res://assets/images/icon_circle.png")
 
-@onready var achievement_list: VBoxContainer = $MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/AchievementList
-@onready var progress_label: Label = $MarginContainer/PanelContainer/VBoxContainer/Header/ProgressLabel
+@onready var achievement_list: VBoxContainer = %AchievementList
+@onready var progress_label: Label = %ProgressLabel
 
 var achievement_manager: AchievementManager = null
 var _achievement_cards: Dictionary = {}

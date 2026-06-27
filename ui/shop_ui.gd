@@ -2,9 +2,9 @@ extends BaseSubUI
 
 const GOLD_ICON: Texture2D = preload("res://assets/images/icon_gold.png")
 
-@onready var gold_label: Label = $MarginContainer/PanelContainer/VBoxContainer/Header/GoldLabel
-@onready var item_list: VBoxContainer = $MarginContainer/PanelContainer/VBoxContainer/ScrollContainer/ItemList
-@onready var message_label: Label = $MarginContainer/PanelContainer/VBoxContainer/MessageLabel
+@onready var gold_label: Label = %GoldLabel
+@onready var item_list: VBoxContainer = %ItemList
+@onready var message_label: Label = %MessageLabel
 
 const ITEM_IDS: PackedStringArray = ["health_potion", "attack_boost", "defense_boost", "exp_potion", "equipment_box"]
 

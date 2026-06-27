@@ -29,6 +29,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 
 [node name="BackButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "← 返回"
 
@@ -41,12 +42,14 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GoldLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "0"
 vertical_alignment = 1
 
 [node name="CapacityLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 13
 text = "背包 0/50"
@@ -150,6 +153,7 @@ size_flags_horizontal = 3
 columns = 3
 
 [node name="DetailPanel" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="VBox" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel"]
@@ -157,12 +161,14 @@ layout_mode = 2
 theme_override_constants/separation = 8
 
 [node name="DetailTitle" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = ""
 horizontal_alignment = 1
 
 [node name="DetailStats" type="RichTextLabel" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 focus_mode = 0
@@ -176,25 +182,30 @@ theme_override_constants/separation = 8
 alignment = 1
 
 [node name="EquipButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "装备"
 
 [node name="UnequipButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "卸下"
 
 [node name="UpgradeButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "强化"
 
 [node name="SellButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow"]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 text = "出售"
 
 [node name="AutoEquipButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "一键最佳"

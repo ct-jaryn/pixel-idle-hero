@@ -70,18 +70,21 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 custom_minimum_size = Vector2(180, 38)
 size_flags_horizontal = 4
 text = "继续游戏"
 
 [node name="NewGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 custom_minimum_size = Vector2(180, 38)
 size_flags_horizontal = 4
 text = "开始新游戏"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 custom_minimum_size = Vector2(180, 38)
 size_flags_horizontal = 4

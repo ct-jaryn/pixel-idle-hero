@@ -15,29 +15,7 @@ func _ready() -> void:
 		back_button.pressed.connect(_on_back_pressed)
 
 func _find_back_button() -> Button:
-	## 优先查找硬编码路径
-	var paths: PackedStringArray = [
-		"MarginContainer/PanelContainer/VBoxContainer/Header/BackButton",
-		"MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Header/BackButton"
-	]
-	for path: String in paths:
-		var node: Node = get_node_or_null(path)
-		if node is Button:
-			return node
-	
-	## 兜底：递归查找名为 BackButton 或文本含“返回”的按钮
-	return _find_back_button_recursive(self) as Button
-
-func _find_back_button_recursive(node: Node) -> Button:
-	for child: Node in node.get_children():
-		if child is Button:
-			var btn: Button = child as Button
-			if btn.name == "BackButton" or (btn.text != "" and "返回" in btn.text):
-				return btn
-		var found: Button = _find_back_button_recursive(child)
-		if found != null:
-			return found
-	return null
+	return get_node_or_null("%BackButton") as Button
 
 func _unhandled_input(event: InputEvent) -> void:
 	if visible and event.is_action_pressed("ui_cancel"):

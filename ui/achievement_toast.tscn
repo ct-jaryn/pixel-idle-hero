@@ -7,6 +7,7 @@ layer = 4
 script = ExtResource("1_toast")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -22,6 +23,7 @@ theme_override_constants/separation = 6
 alignment = 1
 
 [node name="TitleLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 theme_override_colors/font_color = Color(1, 0.85, 0.3, 1)
@@ -29,12 +31,14 @@ text = "成就解锁"
 horizontal_alignment = 1
 
 [node name="NameLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "成就名称"
 horizontal_alignment = 1
 
 [node name="RewardLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
 theme_override_colors/font_color = Color(0.5, 1, 0.4, 1)

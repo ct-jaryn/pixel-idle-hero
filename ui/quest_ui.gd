@@ -2,9 +2,9 @@ extends BaseSubUI
 
 const CHECK_ICON: Texture2D = preload("res://assets/images/icon_check.png")
 
-@onready var quest_list: VBoxContainer = $MarginContainer/CenterContainer/PanelContainer/VBoxContainer/ScrollContainer/QuestList
-@onready var refresh_button: Button = $MarginContainer/CenterContainer/PanelContainer/VBoxContainer/Header/RefreshButton
-@onready var message_label: Label = $MarginContainer/CenterContainer/PanelContainer/VBoxContainer/MessageLabel
+@onready var quest_list: VBoxContainer = %QuestList
+@onready var refresh_button: Button = %RefreshButton
+@onready var message_label: Label = %MessageLabel
 
 var quest_manager: QuestManager = null
 var _quest_cards: Dictionary = {}

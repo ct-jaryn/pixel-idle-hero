@@ -6,7 +6,7 @@ extends Node
 ##
 ## 跨管理器依赖不再在此手动接线——各管理器通过 Services 自行解析协作者。
 
-@onready var background: TextureRect = $"../Background"
+@onready var background: TextureRect = %Background
 
 var player_data: PlayerData
 var battle_manager: BattleManager

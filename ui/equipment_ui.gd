@@ -14,16 +14,16 @@ const EQUIPMENT_ICONS: Dictionary = {
 
 @onready var wide_content: HBoxContainer = %WideContent
 @onready var narrow_content: VBoxContainer = %NarrowContent
-@onready var detail_panel: PanelContainer = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel
-@onready var detail_title: Label = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/DetailTitle
-@onready var detail_stats: RichTextLabel = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/DetailStats
-@onready var equip_button: Button = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow/EquipButton
-@onready var unequip_button: Button = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow/UnequipButton
-@onready var sell_button: Button = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow/SellButton
-@onready var upgrade_button: Button = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow/UpgradeButton
-@onready var auto_equip_button: Button = $MarginContainer/PanelContainer/VBoxContainer/DetailPanel/VBox/ButtonRow/AutoEquipButton
-@onready var gold_label: Label = $MarginContainer/PanelContainer/VBoxContainer/Header/GoldLabel
-@onready var capacity_label: Label = $MarginContainer/PanelContainer/VBoxContainer/Header/CapacityLabel
+@onready var detail_panel: PanelContainer = %DetailPanel
+@onready var detail_title: Label = %DetailTitle
+@onready var detail_stats: RichTextLabel = %DetailStats
+@onready var equip_button: Button = %EquipButton
+@onready var unequip_button: Button = %UnequipButton
+@onready var sell_button: Button = %SellButton
+@onready var upgrade_button: Button = %UpgradeButton
+@onready var auto_equip_button: Button = %AutoEquipButton
+@onready var gold_label: Label = %GoldLabel
+@onready var capacity_label: Label = %CapacityLabel
 
 var equipment_manager: EquipmentManager = null
 var selected_equipment: EquipmentData = null
@@ -101,7 +101,7 @@ func _refresh_equipped() -> void:
 	for type: int in range(EquipmentData.Type.size()):
 		var current: EquipmentData = equipment_manager.equipped.get(type, null) as EquipmentData
 		var cached_equip: EquipmentData = null
-		if _equipped_buttons.has(type):
+		if _equipped_buttons.has(type) and _equipped_buttons[type].has_meta("equipment"):
 			cached_equip = _equipped_buttons[type].get_meta("equipment", null) as EquipmentData
 		
 		if current == cached_equip and _equipped_buttons.has(type):
@@ -124,8 +124,8 @@ func _refresh_equipped() -> void:
 		new_btn.icon = EQUIPMENT_ICONS[type]
 		new_btn.expand_icon = true
 		new_btn.icon_alignment = HORIZONTAL_ALIGNMENT_LEFT
-		new_btn.set_meta("equipment", current)
 		if current != null:
+			new_btn.set_meta("equipment", current)
 			new_btn.text = "%s\nLv.%d %s" % [current.equip_name, current.level, EquipmentData.TYPE_NAMES[type]]
 			new_btn.add_theme_color_override("font_color", current.get_rarity_color())
 			new_btn.pressed.connect(_select_equipment.bind(current, true))

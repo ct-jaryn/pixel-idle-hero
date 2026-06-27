@@ -1,8 +1,8 @@
 extends Control
 
-@onready var continue_button: Button = $MarginContainer/VBoxContainer/ContinueButton
-@onready var new_game_button: Button = $MarginContainer/VBoxContainer/NewGameButton
-@onready var exit_button: Button = $MarginContainer/VBoxContainer/ExitButton
+@onready var continue_button: Button = %ContinueButton
+@onready var new_game_button: Button = %NewGameButton
+@onready var exit_button: Button = %ExitButton
 
 var save_manager: SaveManager = SaveManager.new()
 

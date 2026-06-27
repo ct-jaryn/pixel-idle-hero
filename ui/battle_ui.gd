@@ -10,27 +10,27 @@ extends CanvasLayer
 @export var achievement_toast: CanvasLayer
 @export var quest_ui: CanvasLayer
 
-@onready var main_margin: MarginContainer = $MainMargin
-@onready var root_vbox: VBoxContainer = $MainMargin/RootVBox
-@onready var top_bar: HBoxContainer = $MainMargin/RootVBox/TopBar
-@onready var player_level: Label = $MainMargin/RootVBox/TopBar/PlayerCard/VBox/Header/PlayerLevel
-@onready var stage_label: Label = $MainMargin/RootVBox/TopBar/PlayerCard/VBox/Header/StageLabel
-@onready var gold_label: Label = $MainMargin/RootVBox/TopBar/PlayerCard/VBox/Header/GoldLabel
-@onready var player_hp: ProgressBar = $MainMargin/RootVBox/TopBar/PlayerCard/VBox/HPBar
-@onready var exp_bar: ProgressBar = $MainMargin/RootVBox/TopBar/PlayerCard/VBox/EXPBar
-@onready var energy_bar: ProgressBar = $MainMargin/RootVBox/TopBar/EnergyCard/VBox/EnergyBar
-@onready var enemy_name: Label = $MainMargin/RootVBox/TopBar/EnemyCard/VBox/Header/EnemyName
-@onready var enemy_level: Label = $MainMargin/RootVBox/TopBar/EnemyCard/VBox/Header/EnemyLevel
-@onready var enemy_hp: ProgressBar = $MainMargin/RootVBox/TopBar/EnemyCard/VBox/EnemyHPBar
-@onready var side_panel: VBoxContainer = $MainMargin/RootVBox/MainArea/SidePanel
-@onready var skill_bar: HBoxContainer = $MainMargin/RootVBox/MainArea/SidePanel/SkillPanel/VBox/SkillBar
-@onready var log_panel: PanelContainer = $MainMargin/RootVBox/MainArea/SidePanel/LogPanel
-@onready var log_text: RichTextLabel = $MainMargin/RootVBox/MainArea/SidePanel/LogPanel/LogText
-@onready var log_text_mobile: RichTextLabel = $MainMargin/RootVBox/FloatingLogPanel/LogTextMobile
-@onready var floating_log_panel: PanelContainer = $MainMargin/RootVBox/FloatingLogPanel
-@onready var toggle_log_button: Button = $MainMargin/RootVBox/BottomBar/ToggleLogButton
-@onready var boss_button: Button = $MainMargin/RootVBox/BottomBar/BossButton
-@onready var bottom_bar: HBoxContainer = $MainMargin/RootVBox/BottomBar
+@onready var main_margin: MarginContainer = %MainMargin
+@onready var root_vbox: VBoxContainer = %RootVBox
+@onready var top_bar: HBoxContainer = %TopBar
+@onready var player_level: Label = %PlayerLevel
+@onready var stage_label: Label = %StageLabel
+@onready var gold_label: Label = %GoldLabel
+@onready var player_hp: ProgressBar = %HPBar
+@onready var exp_bar: ProgressBar = %EXPBar
+@onready var energy_bar: ProgressBar = %EnergyBar
+@onready var enemy_name: Label = %EnemyName
+@onready var enemy_level: Label = %EnemyLevel
+@onready var enemy_hp: ProgressBar = %EnemyHPBar
+@onready var side_panel: VBoxContainer = %SidePanel
+@onready var skill_bar: HBoxContainer = %SkillBar
+@onready var log_panel: PanelContainer = %LogPanel
+@onready var log_text: RichTextLabel = %LogText
+@onready var log_text_mobile: RichTextLabel = %LogTextMobile
+@onready var floating_log_panel: PanelContainer = %FloatingLogPanel
+@onready var toggle_log_button: Button = %ToggleLogButton
+@onready var boss_button: Button = %BossButton
+@onready var bottom_bar: HBoxContainer = %BottomBar
 
 const RESPONSIVE_WIDTH_THRESHOLD: int = 1000
 const NARROW_WIDTH_THRESHOLD: int = 700
@@ -173,11 +173,11 @@ func _set_bottom_button_compact(compact: bool) -> void:
 	var compact_texts: PackedStringArray = ["Boss", "装备", "商店", "统计", "成就", "任务"]
 	var buttons: Array[Button] = [
 		boss_button,
-		$MainMargin/RootVBox/BottomBar/EquipmentButton,
-		$MainMargin/RootVBox/BottomBar/ShopButton,
-		$MainMargin/RootVBox/BottomBar/StatsButton,
-		$MainMargin/RootVBox/BottomBar/AchievementButton,
-		$MainMargin/RootVBox/BottomBar/QuestButton
+		%EquipmentButton,
+		%ShopButton,
+		%StatsButton,
+		%AchievementButton,
+		%QuestButton
 	]
 	for i: int in range(buttons.size()):
 		buttons[i].text = compact_texts[i] if compact else texts[i]

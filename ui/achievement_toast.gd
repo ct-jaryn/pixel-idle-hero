@@ -2,10 +2,10 @@ extends CanvasLayer
 
 const ACHIEVEMENT_ICON: Texture2D = preload("res://assets/images/icon_achievement.png")
 
-@onready var panel: PanelContainer = $PanelContainer
-@onready var title_label: Label = $PanelContainer/VBoxContainer/TitleLabel
-@onready var name_label: Label = $PanelContainer/VBoxContainer/NameLabel
-@onready var reward_label: Label = $PanelContainer/VBoxContainer/RewardLabel
+@onready var panel: PanelContainer = %PanelContainer
+@onready var title_label: Label = %TitleLabel
+@onready var name_label: Label = %NameLabel
+@onready var reward_label: Label = %RewardLabel
 
 const SHOW_Y: float = 80.0
 const HIDE_Y: float = -200.0
